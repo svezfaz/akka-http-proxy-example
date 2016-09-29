@@ -1,0 +1,43 @@
+<configuration>
+
+<property name="basepattern" value="%date{HH:mm:ss.SSS} %-5level [%-50.50logger] - %msg%n"/>
+
+<appender name="SYSOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <target>System.out</target>
+    <encoder>
+        <pattern>${basepattern}</pattern>
+    </encoder>
+</appender>
+<appender name="REQUESTS" class="ch.qos.logback.core.ConsoleAppender">
+    <target>System.out</target>
+    <encoder>
+        <pattern>%msg%n</pattern>
+    </encoder>
+</appender>
+
+<logger name="akka" level="info" additivity="false">
+    <appender-ref ref="ERR"/>
+</logger>
+
+<logger name="akka.actor" level="info" additivity="false">
+    <appender-ref ref="ERR"/>
+</logger>
+
+<logger name="akka.http" level="info" additivity="false">
+    <appender-ref ref="ERR"/>
+</logger>
+
+<logger name="akka.stream" level="info" additivity="false">
+    <appender-ref ref="ERR"/>
+</logger>
+
+<root level="INFO">
+    <appender-ref ref="SYSOUT"/>
+    <appender-ref ref="REQUESTS"/>
+</root>
+
+<logger name="requestslogger" level="info" additivity="false">
+    <appender-ref ref="REQUESTS"/>
+</logger>
+
+</configuration>
