@@ -13,3 +13,5 @@ sbt sim/gatling:test
 ```
 
 At the end of the test (i.e. when the test terminates!) it should be able to see much more open connections than expected.
+
+This bug has been filed as https://github.com/akka/akka-http/issues/368.
